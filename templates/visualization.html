@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Visualization Results</h1>
+    <div id="visualizations">
+        {% for image in images %}
+            <p>{{ image }}</p>
+            {% if image.endswith('.html') %}
+                <iframe src="{{ url_for('static', filename=image.split('static/')[1]) }}" width="100%" height="500px"></iframe>
+            {% else %}
+                <img src="{{ url_for('static', filename=image.split('static/')[1]) }}" alt="Visualization" style="width:100%; max-height:500px; margin-bottom:20px;">
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

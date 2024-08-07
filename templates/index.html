@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Population Visualizer</h1>
+    <form method="post" action="/visualize">
+        <div class="dropdown-container">
+            <div class="dropdown">
+                <label for="country-code1">Select Country Code 1:</label><br>
+                <select name="cca3">
+                    {% for country in countries %}
+                        <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="dropdown">
+                <label for="country-code2">Select Country Code 2:</label><br>
+                <select name="cca3">
+                    {% for country in countries %}
+                        <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="dropdown">
+                <label for="country-code3">Select Country Code 3:</label><br>
+                <select name="cca3">
+                    {% for country in countries %}
+                        <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <input type="submit" value="Visualize">
+    </form>
+</body>
+</html>
